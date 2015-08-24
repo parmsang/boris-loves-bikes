@@ -7,9 +7,28 @@ describe DockingStation do
   it{ is_expected.to respond_to :release_bike }
 
   it 'releases working bikes' do
-    subject.dock double :bike, working?: true
-    expect(subject.release_bike).to be_working
+    bike = Bike.new
+    subject.dock bike
+    expect(subject.release_bike).to be bike
+    # bike = double :bike, working?: true
+    # subject.dock bike
+    # expect(subject.release_bike).to be bike
   end
+
+  it 'releases chosen bike' do
+    bike = Bike.new
+    subject.dock bike
+    subject.choose bike
+    expect(subject.release_bike).to be bike
+  end
+    # bike = double :bike, chosen: true
+    # subject.dock bike
+    # expect(subject.release_bike).to be bike
+
+    # chosen_bike = subject.choose bike
+    # subject.release_bike
+    # expect(subject.chosen_bikes).not_to eq ""
+
 
   it 'has a default capacity' do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
