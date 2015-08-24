@@ -1,6 +1,9 @@
 require 'docking_station'
-
+require_relative './support/shared_examples_for_bike_container'
 describe DockingStation do
+
+  it_behaves_like BikeContainer
+
   it{ is_expected.to respond_to :release_bike }
 
   it 'releases working bikes' do
@@ -12,11 +15,6 @@ describe DockingStation do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
 
-  it 'is possible to change capacity' do
-    subject.capacity = 10
-    expect(subject.capacity).to eq 10
-  end
-
   it{ is_expected.to respond_to(:dock).with(1).argument }
 
   describe '#release_bike' do
@@ -25,10 +23,10 @@ describe DockingStation do
     end
   end
 
-  describe '#dock' do
-    it 'raises an error when full' do
-      subject.capacity.times { subject.dock double :bike}
-      expect { subject.dock double :bike }.to raise_error 'Docking station full'
-    end
-  end
+  # describe '#dock' do
+  #   it 'raises an error when full' do
+  #     subject.capacity.times { subject.dock double :bike}
+  #     expect { subject.dock double :bike }.to raise_error 'Docking station full'
+  #   end
+  # end
 end

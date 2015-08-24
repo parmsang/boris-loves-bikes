@@ -1,7 +1,7 @@
 require_relative 'bike'
 require_relative 'bike_container'
 
-class DockingStation
+class Garage
   include BikeContainer
 
 
