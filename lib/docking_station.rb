@@ -14,9 +14,14 @@ class DockingStation
     add_bike bike
   end
 
+  def choose bike
+    bike.choose
+  end
+
   private
 
   def working_bikes
     bikes.select { |bike| bike.working? }
   end
+
 end

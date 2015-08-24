@@ -6,8 +6,8 @@ class Van
 
 
   def release_bike
-    fail 'No bikes available' if working_bikes.empty?
-    bikes.delete working_bikes.pop
+    fail 'No bikes available' if bikes.empty?
+    bikes.pop
   end
 
   def unload
@@ -23,9 +23,5 @@ class Van
     raise "#{self.class.name} full" if full?
     bikes << bike
   end
-  private
 
-  def working_bikes
-    bikes.select { |bike| bike.working? }
-  end
 end

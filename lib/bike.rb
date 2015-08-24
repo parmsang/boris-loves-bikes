@@ -2,6 +2,7 @@ class Bike
 
   def initialize
     @working = true
+    @chosen = false
   end
 
   def working?
@@ -15,4 +16,13 @@ class Bike
   def fix
     @working = true
   end
+
+  def choose
+    @chosen = true
+  end
+
+  def chosen?
+    @chosen
+  end
+
 end
