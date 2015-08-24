@@ -12,7 +12,7 @@ I'd like to see if a bike works
 
 bike                    can be released
                         working order
-----------------------------------------
+
 docking station         release bike
 
 bike <-- works? -->  true/false
