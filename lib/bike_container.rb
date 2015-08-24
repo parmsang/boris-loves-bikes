@@ -20,11 +20,6 @@ module BikeContainer
     bikes.pop
   end
 
-  def accept(bike)
-    bike.fix
-    add_bike bike
-  end
-
   def full?
     bikes.count >= capacity
   end

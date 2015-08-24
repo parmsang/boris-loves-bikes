@@ -14,6 +14,15 @@ class Garage
     add_bike bike
   end
 
+  def accept(bike)
+    bike.fix
+    add_bike bike
+  end
+
+  def fix_bikes
+    bikes.each {|bike| bike.fix}
+  end
+
   private
 
   def working_bikes
