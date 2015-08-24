@@ -1,6 +1,6 @@
 # Boris-Bikes
 
-User stiories:
+User stories:
 
 As a person,
 So that I can use a bike,
