@@ -22,11 +22,11 @@ describe DockingStation do
       expect { subject.release_bike }.to raise_error 'No bikes available'
     end
   end
+  let (:bike) {Bike.new}
   describe '#choose' do
     it 'allows user to select preferred bike' do
-      bike = double :bike
       subject.dock bike
-      subject.choose bike
+      subject.choose(bike)
       expect(bike.chosen).to be true
     end
   end

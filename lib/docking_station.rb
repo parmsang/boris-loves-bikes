@@ -7,7 +7,11 @@ class DockingStation
 
   def release_bike
     fail 'No bikes available' if working_bikes.empty?
-    bikes.delete working_bikes.pop
+    #if chosen_bikes != nil
+      #bikes.delete(chosen_bikes.pop)
+    #else
+      bikes.delete(working_bikes.pop)
+    #end
   end
 
   def dock bike
@@ -15,7 +19,12 @@ class DockingStation
   end
 
   def choose bike
-    bike.choose
+    @chosen_bike = bike
+    bike.chosen = true
+  end
+
+  def chosen_bikes
+    bikes.select { |bike| bike.chosen }
   end
 
   private

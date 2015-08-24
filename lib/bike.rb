@@ -17,12 +17,6 @@ class Bike
     @working = true
   end
 
-  def choose
-    @chosen = true
-  end
-
-  def chosen?
-    @chosen
-  end
+  attr_accessor :chosen
 
 end
