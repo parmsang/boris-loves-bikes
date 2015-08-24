@@ -20,11 +20,11 @@ class DockingStation
 
   def choose bike
     @chosen_bike = bike
-    bike.chosen = true
+    bike.report_chosen
   end
 
   def chosen_bikes
-    bikes.select { |bike| bike.chosen }
+    bikes.select { |bike| bike.chosen? }
   end
 
   # private
