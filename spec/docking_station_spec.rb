@@ -1,12 +1,13 @@
 require 'docking_station'
 require_relative './support/shared_examples_for_bike_container'
 describe DockingStation do
-let(:bike) {Bike.new}
+# let(:bike) {double :bike}
   it_behaves_like BikeContainer
 
   it{ is_expected.to respond_to :release_bike }
 
   it 'releases working bikes' do
+
     subject.dock bike
     expect(subject.release_bike).to be_working
   end
@@ -29,7 +30,7 @@ let(:bike) {Bike.new}
       expect { subject.release_bike }.to raise_error 'No bikes available'
     end
   end
-  let (:bike) {Bike.new}
+  let (:bike) {double :bike, report_chosen: true, working?: true, chosen?: true}
   describe '#choose' do
     it 'allows user to select preferred bike' do
       subject.dock bike
